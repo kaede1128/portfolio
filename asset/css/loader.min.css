@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900');
+:root{
+	--loader-bg-color: #111;
+	--loader-font-size: 7.6em;
+	--loader-text-shadow-x:100px;
+	--loader-text-shadow-y:0px;
+	--loader-text-shadow-color: rgba(255,255,255,0.1);
+	--x: 50vw;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+}
+#loader-box {
+	position: absolute;
+	width: 100vw,
+	height: 100vh;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	overflow: hidden;
+}
+#loader  {
+	position: relative;
+	margin-left: -50vw;
+	width: 150vw;
+	height: 100vh;
+	background: var(--loader-bg-color);
+	overflow: hidden;
+}
+#loader .text {
+	position: relative;
+	transform: skewY(345deg) translateY(-200px);
+	animation: animatecolor 5s linear infinite;
+}
+@keyframes animatecolor {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+	100% {
+		filter: hue-rotate(360deg);
+	}
+}
+#loader .text h2 {
+	position: relative;
+	width: 100%;
+	font-size: var(--loader-font-size);
+	/*melforjob@gmail.com*/
+	color: #FFF;
+	pointer-events: none;
+	line-height: 1em;
+	white-space: nowrap;
+	text-shadow: calc(var(--x)) var(--loader-text-shadow-x) var(--loader-text-shadow-y) var(--loader-text-shadow-color);
+	transform: translateX(calc(0% - var(--x) * var(--i)));
+}
+#loader .text h2:nth-child(3n+1) {
+	--i: 0.5;
+}
+#loader .text h2:nth-child(3n+2) {
+	--i: 1.5;
+}
+#loader .text h2:nth-child(3n+3) {
+	--i: 2.5;
+}
+#loader .text h2 span {
+	color: #0f0;
+	margin: 0 10px;
+	/*word-break: break-all;*/
+}
+#loader .text h2 span:nth-child(even) {
+	color: transparent;
+	-webkit-text-stroke: 2px #FFF;
+}
