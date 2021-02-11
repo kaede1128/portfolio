@@ -72,7 +72,7 @@
 		</div>
 		</section>
 	</div>
-    <script>
+    <script type="text/javascript">
 	function loader() {
 		$('#loader').fadeOut(1500);
 		$('#loader-box').remove(1600);
@@ -81,7 +81,18 @@
 	position.addEventListener("mousemove", e => {
 		position.style.setProperty('--x', e.clientX + 'px');
 	});
-		</script>
+
+	$(document).ready(function(){
+	// iOS web app full screen hacks.
+	if(window.navigator.standalone == true) {
+		// make all link remain in web app mode.
+  		$('a').click(function() {
+  			window.location = $(this).attr('href');
+            return false;
+  		});
+		}
+	});
+	</script>
 </body>
 
 
